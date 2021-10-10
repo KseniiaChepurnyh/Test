@@ -11,11 +11,9 @@ import Foundation
 final class Value {
     
     static var savedValue: Float! {
-        
         get {
             return UserDefaults.standard.float(forKey: "value")
         }
-        
         set {
             let defaults = UserDefaults.standard
             if let value = newValue {

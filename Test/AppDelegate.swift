@@ -12,7 +12,6 @@ import BackgroundTasks
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
     let notificationCentr = UNUserNotificationCenter.current()
     
     var record: Record = Record()

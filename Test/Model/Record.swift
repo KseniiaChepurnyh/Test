@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class Record {
     var value: Float = 0.0
     var date: String = ""

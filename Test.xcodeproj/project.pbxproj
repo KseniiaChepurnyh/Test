@@ -19,6 +19,10 @@
 		DA9BE6A52665EC31006BBFF5 /* Extension Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE6A42665EC31006BBFF5 /* Extension Date.swift */; };
 		DA9BE6A72665EFB6006BBFF5 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE6A62665EFB6006BBFF5 /* CustomCell.swift */; };
 		DA9BE6B126663049006BBFF5 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE6B026663049006BBFF5 /* Value.swift */; };
+		DAC6BC1C27134212006E3CF8 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6BC1B27134212006E3CF8 /* CurrencyManager.swift */; };
+		DAC6BC1E27134338006E3CF8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6BC1D27134338006E3CF8 /* Currency.swift */; };
+		DAC6BC2027134C5B006E3CF8 /* CurrenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6BC1F27134C5B006E3CF8 /* CurrenceTableViewCell.swift */; };
+		DAC6BC35271351AB006E3CF8 /* CurrencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6BC34271351AB006E3CF8 /* CurrencyVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		DA9BE6A42665EC31006BBFF5 /* Extension Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension Date.swift"; sourceTree = "<group>"; };
 		DA9BE6A62665EFB6006BBFF5 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		DA9BE6B026663049006BBFF5 /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		DAC6BC1B27134212006E3CF8 /* CurrencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManager.swift; sourceTree = "<group>"; };
+		DAC6BC1D27134338006E3CF8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		DAC6BC1F27134C5B006E3CF8 /* CurrenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenceTableViewCell.swift; sourceTree = "<group>"; };
+		DAC6BC34271351AB006E3CF8 /* CurrencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,7 @@
 		DA9BE68726655BD9006BBFF5 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				DAC6BC2927134F5B006E3CF8 /* Currency */,
 				DA9BE6AB2665F1EB006BBFF5 /* Utils */,
 				DA9BE6AA2665F1CF006BBFF5 /* Controller */,
 				DA9BE6A92665F1C4006BBFF5 /* View */,
@@ -109,6 +118,7 @@
 			children = (
 				DA9BE6A026655D2F006BBFF5 /* Record.swift */,
 				DA9BE6B026663049006BBFF5 /* Value.swift */,
+				DAC6BC1D27134338006E3CF8 /* Currency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				DA9BE6A62665EFB6006BBFF5 /* CustomCell.swift */,
+				DAC6BC1F27134C5B006E3CF8 /* CurrenceTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,8 +145,17 @@
 			children = (
 				DA9BE69E26655CBF006BBFF5 /* Parser.swift */,
 				DA9BE6A42665EC31006BBFF5 /* Extension Date.swift */,
+				DAC6BC1B27134212006E3CF8 /* CurrencyManager.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		DAC6BC2927134F5B006E3CF8 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6BC34271351AB006E3CF8 /* CurrencyVC.swift */,
+			);
+			path = Currency;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,10 +273,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA9BE6A52665EC31006BBFF5 /* Extension Date.swift in Sources */,
+				DAC6BC1C27134212006E3CF8 /* CurrencyManager.swift in Sources */,
 				DA9BE69F26655CBF006BBFF5 /* Parser.swift in Sources */,
 				DA9BE69D26655BFF006BBFF5 /* MainViewController.swift in Sources */,
+				DAC6BC35271351AB006E3CF8 /* CurrencyVC.swift in Sources */,
 				DA9BE6A126655D2F006BBFF5 /* Record.swift in Sources */,
 				DA9BE6B126663049006BBFF5 /* Value.swift in Sources */,
+				DAC6BC2027134C5B006E3CF8 /* CurrenceTableViewCell.swift in Sources */,
+				DAC6BC1E27134338006E3CF8 /* Currency.swift in Sources */,
 				DA9BE68926655BD9006BBFF5 /* AppDelegate.swift in Sources */,
 				DA9BE6A72665EFB6006BBFF5 /* CustomCell.swift in Sources */,
 				DA9BE68B26655BD9006BBFF5 /* SceneDelegate.swift in Sources */,

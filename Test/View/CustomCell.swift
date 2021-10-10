@@ -8,34 +8,53 @@
 import UIKit
 import SnapKit
 
+struct CustomCellViewModel {
+    let value: String
+    let date: String
+    let difference: String
+}
+
+//enum CellType {
+//
+//}
 
 class CustomCell: UITableViewCell {
+    
+    private lazy var titleAndSubtitleStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 2
+        return stackView
+    }()
 
-    public let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Futura-Medium", size: 20)
         label.textColor = .black
+        contentView.addSubview(label)
         return label
     }()
     
-    public let subtitleLabel: UILabel = {
+    private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Futura-Medium", size: 13)
         label.textColor = .darkGray
+        contentView.addSubview(label)
         return label
     }()
     
-    public let differenceLabel: UILabel = {
+    private lazy var differenceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Futura-Medium", size: 20)
         label.textColor = .darkGray
+        contentView.addSubview(label)
         return label
     }()
     
-    public let arrowImage: UIImageView = {
+    private lazy var arrowImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "arrow.up")
         imageView.tintColor = .systemGreen
+        contentView.addSubview(imageView)
         return imageView
     }()
     
@@ -43,34 +62,46 @@ class CustomCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
+        setUpConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+
+extension CustomCell {
+    
+    func configureCell(with model: CustomCellViewModel) {
+        titleLabel.text = model.value
+        subtitleLabel.text = model.date
         
-        addSubview(arrowImage)
+        
+    }
+    
+}
+
+private extension CustomCell {
+    
+    func setUpConstraints() {
         arrowImage.snp.makeConstraints { make in
             make.centerY.equalTo(self.snp.centerY)
             make.left.equalTo(self.snp.left).offset(10)
             make.width.height.equalTo(40)
         }
         
-        let stak = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
-        stak.axis = .vertical
-        stak.spacing = 2
-        
-        addSubview(stak)
-        stak.snp.makeConstraints { make in
+        contentView.addSubview(titleAndSubtitleStackView)
+        titleAndSubtitleStackView.snp.makeConstraints { make in
             make.centerY.equalTo(arrowImage.snp.centerY)
             make.left.equalTo(arrowImage.snp.right).offset(10)
         }
         
-        addSubview(differenceLabel)
         differenceLabel.snp.makeConstraints { make in
             make.centerY.equalTo(arrowImage.snp.centerY)
             make.right.equalTo(self.snp.right).inset(10)
         }
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }
