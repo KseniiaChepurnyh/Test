@@ -7,7 +7,18 @@
 
 import Foundation
 
-struct Currency {
-    var name: String = ""
-    var code: String = ""
+struct Currency: Equatable {
+    static func == (lhs: Currency, rhs: Currency) -> Bool {
+        return
+        lhs.code == rhs.code &&
+        lhs.name == rhs.name
+    }
+    
+    var name: String
+    var code: String
+    
+    init(name: String = "", code: String = "") {
+        self.name = name
+        self.code = code
+    }
 }

@@ -127,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				DA9BE6A62665EFB6006BBFF5 /* CustomCell.swift */,
-				DAC6BC1F27134C5B006E3CF8 /* CurrenceTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -153,9 +152,18 @@
 		DAC6BC2927134F5B006E3CF8 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
+				DAC6BC36271417F2006E3CF8 /* TableViewCells */,
 				DAC6BC34271351AB006E3CF8 /* CurrencyVC.swift */,
 			);
 			path = Currency;
+			sourceTree = "<group>";
+		};
+		DAC6BC36271417F2006E3CF8 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6BC1F27134C5B006E3CF8 /* CurrenceTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

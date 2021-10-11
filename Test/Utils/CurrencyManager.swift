@@ -45,7 +45,11 @@ extension CurrencyManager: XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         xmlText = ""
         if elementName == "Item" {
-            currentCurrency = Currency()
+            currentCurrency = .init()
+        }
+        
+        if let code = attributeDict["ID"] {
+            currentCurrency?.code = code
         }
     }
     
@@ -58,10 +62,6 @@ extension CurrencyManager: XMLParserDelegate {
         
         if elementName == "Name" {
             currentCurrency?.name = xmlText
-        }
-        
-        if elementName == "ParentCode" {
-            currentCurrency?.code = xmlText.filter { $0 != " " }
         }
     }
     
