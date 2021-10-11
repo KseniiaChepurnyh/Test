@@ -54,6 +54,7 @@ final class CurrencyTableViewCell: UITableViewCell {
     
 }
 
+
 // MARK: - Configure Cell.
 
 extension CurrencyTableViewCell {

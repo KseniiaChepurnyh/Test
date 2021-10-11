@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: CurrencyVC())
+        window?.rootViewController = UINavigationController(rootViewController: CurrencyViewConroller())
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
