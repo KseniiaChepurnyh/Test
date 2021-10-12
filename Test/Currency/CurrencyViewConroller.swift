@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 // MARK: - View Model.
 
 struct CurrencyViewModel {
@@ -23,6 +22,7 @@ struct CurrencyViewModel {
 enum CurrencyCells {
     case currencyCell(model: Currency, type: CurrencyTableViewCellType)
     case titleCell(text: String)
+    #warning("Добавить spaicing cell")
 }
 
 final class CurrencyViewConroller: UIViewController {
@@ -50,7 +50,7 @@ final class CurrencyViewConroller: UIViewController {
     // MARK: - Properties.
     
     private var viewModel: CurrencyViewModel?
-    private var selectedItems: [Currency] = []
+    private var selectedCurrencies: [Currency] = []
     
     
     // MARK: - Life Cycle.
@@ -60,8 +60,12 @@ final class CurrencyViewConroller: UIViewController {
         
         setUpConstraints()
         addContinueButton()
-        CurrencyManager.shared.fetchCurrencyList { currencyArray in
-            self.generateViewModel(from: currencyArray)
+        DBManager.shared.getCurrencies { currency in
+            self.selectedCurrencies = currency
+            self.setContinueButtonHidden(self.selectedCurrencies.count > 0 ? false : true)
+            CurrencyManager.shared.fetchCurrencyList { currencyArray in
+                self.generateViewModel(from: currencyArray)
+            }
         }
     }
 }
@@ -108,13 +112,13 @@ extension CurrencyViewConroller: UITableViewDataSource, UITableViewDelegate {
         
         if case let .currencyCell(model, _) = cellModel {
             guard let currencyArray = viewModel?.currencyArray else { return }
-            if selectedItems.contains(model) {
-                guard let index = selectedItems.firstIndex(where: { $0 == model } ) else { return }
-                selectedItems.remove(at: index)
+            if selectedCurrencies.contains(model) {
+                guard let index = selectedCurrencies.firstIndex(where: { $0 == model } ) else { return }
+                selectedCurrencies.remove(at: index)
             } else {
-                selectedItems.append(model)
+                selectedCurrencies.append(model)
             }
-            setContinueButtonHidden(selectedItems.count > 0 ? false : true)
+            setContinueButtonHidden(selectedCurrencies.count > 0 ? false : true)
             generateViewModel(from: currencyArray)
         }
     }
@@ -131,7 +135,7 @@ private extension CurrencyViewConroller {
         
         cells.append(.titleCell(text: "Выберите валюты"))
         currencyArray.forEach {
-            if selectedItems.contains($0) {
+            if selectedCurrencies.contains($0) {
                 cells.append(.currencyCell(model: $0, type: .selected))
             } else {
                 cells.append(.currencyCell(model: $0, type: .notSelected))
@@ -149,7 +153,9 @@ private extension CurrencyViewConroller {
     }
     
     @objc func didTapOnContinueButton() {
-        let vc = MyCurrenciesViewController()
+        DBManager.shared.saveCurrencies(for: selectedCurrencies)
+        
+        let vc = UINavigationController(rootViewController: MyCurrenciesViewController())
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

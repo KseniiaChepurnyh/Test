@@ -11,15 +11,16 @@ import Foundation
 class Parser: NSObject {
     static let shared = Parser()
     
-    var baseURLDinamic = "http://www.cbr.ru/scripts/XML_dynamic.asp?"
+    private var baseURLDinamic = "http://www.cbr.ru/scripts/XML_dynamic.asp?"
     
-    var baseURLDaily = "http://www.cbr.ru/scripts/XML_daily.asp?"
+    private var baseURLDaily = "http://www.cbr.ru/scripts/XML_daily.asp?"
     
-    var records: [Record] = []
-    var currentRecord: Record?
-    var record: Record = Record()
-    var xmlParser: XMLParser?
-    var xmlText = ""
+    private var records: [Record] = []
+    private var currentRecord: Record?
+    private var record: Record = .init()
+    private var xmlParser: XMLParser?
+    private var xmlText = ""
+    private var date: String = ""
     
     func fetchRecords(startDate: String, endDate: String, completion: @escaping ([Record]) -> Void) {
         guard let url = URL(string: baseURLDinamic +
@@ -44,8 +45,9 @@ class Parser: NSObject {
         
     }
     
-    func fetchRecord(date: String, completion: @escaping (Record) -> Void) {
-        let url = URL(string: baseURLDaily + "date_req1=\(date)")!
+    func fetchRecord(currencies: [Currency], completion: @escaping ([Record]) -> Void) {
+        records = []
+        guard let url = URL(string: baseURLDaily) else { return }
 
         let request = URLRequest(url: url)
 
@@ -56,14 +58,19 @@ class Parser: NSObject {
             self.xmlParser?.delegate = self
             self.xmlParser?.parse()
             
-            for record in self.records {
-                if record.id == "R01235" {
-                    self.record = record
+            
+            var myRecords: [Record] = []
+            self.records.forEach { record in
+                currencies.forEach { currensy in
+                    if record.id == currensy.code {
+                        record.date = self.date
+                        myRecords.append(record)
+                    }
                 }
             }
 
             DispatchQueue.main.async {
-                completion(self.record)
+                completion(myRecords)
             }
         }
         task.resume()
@@ -88,6 +95,12 @@ extension Parser: XMLParserDelegate {
                 currentRecord?.id = id
             }
         }
+        
+        if elementName == "ValCurs" {
+            if let date = attributeDict["Date"] {
+                self.date = date
+            }
+        }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
@@ -107,6 +120,10 @@ extension Parser: XMLParserDelegate {
             if let record = currentRecord {
                 self.records.append(record)
             }
+        }
+        
+        if elementName == "Name" {
+            currentRecord?.name = xmlText
         }
     }
     

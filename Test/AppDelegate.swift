@@ -36,15 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return Date().fogmatedDate(date: date)
         }()
         
-        Parser.shared.fetchRecord(date: date) { record in
-            self.record = record
-            
-            if self.record.value > Value.savedValue {
-                self.scheduleNotification(notificationType: "Уведомление")
-            }
-            
-            task.setTaskCompleted(success: true)
-        }
+//        Parser.shared.fetchRecord(date: date) { record in
+//            self.record = record
+//            
+//            if self.record.value > Value.savedValue {
+//                self.scheduleNotification(notificationType: "Уведомление")
+//            }
+//            
+//            task.setTaskCompleted(success: true)
+//        }
         
         scheduleBackgroundFetch()
         

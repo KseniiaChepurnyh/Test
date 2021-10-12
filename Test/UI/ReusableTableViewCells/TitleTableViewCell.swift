@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class TitleTableViewCell: UITableViewCell {
     
     // MARK: - UI Properties.

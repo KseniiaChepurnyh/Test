@@ -15,7 +15,6 @@ class CurrencyManager: NSObject {
     
     private var currencyArray: [Currency] = []
     private var currentCurrency: Currency?
-    private var currency: Currency = .init()
     private var xmlParser: XMLParser?
     private var xmlText = ""
     

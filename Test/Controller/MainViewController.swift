@@ -6,13 +6,12 @@
 //
 
 import UIKit
-import SnapKit
-
 
 
 class MainViewController: UIViewController {
     
     private var records: [Record] = []
+    var record: Record?
     
     private let endDate: String = {
         let date = Date()
@@ -32,7 +31,11 @@ class MainViewController: UIViewController {
         tableView.register(CustomCell.self, forCellReuseIdentifier: "CustomCell")
         return tableView
     }()
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

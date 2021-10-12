@@ -19,6 +19,9 @@
 		DA9BE6A52665EC31006BBFF5 /* Extension Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE6A42665EC31006BBFF5 /* Extension Date.swift */; };
 		DA9BE6A72665EFB6006BBFF5 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE6A62665EFB6006BBFF5 /* CustomCell.swift */; };
 		DA9BE6B126663049006BBFF5 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE6B026663049006BBFF5 /* Value.swift */; };
+		DAAE2E662715750500B314E3 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE2E652715750500B314E3 /* DBManager.swift */; };
+		DAAE2E69271590D300B314E3 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE2E68271590D300B314E3 /* RecordTableViewCell.swift */; };
+		DAAE2E6D271595B400B314E3 /* SpacingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE2E6C271595B400B314E3 /* SpacingTableViewCell.swift */; };
 		DAC6BC1C27134212006E3CF8 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6BC1B27134212006E3CF8 /* CurrencyManager.swift */; };
 		DAC6BC1E27134338006E3CF8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6BC1D27134338006E3CF8 /* Currency.swift */; };
 		DAC6BC2027134C5B006E3CF8 /* CurrenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6BC1F27134C5B006E3CF8 /* CurrenceTableViewCell.swift */; };
@@ -44,6 +47,9 @@
 		DA9BE6A42665EC31006BBFF5 /* Extension Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension Date.swift"; sourceTree = "<group>"; };
 		DA9BE6A62665EFB6006BBFF5 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		DA9BE6B026663049006BBFF5 /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		DAAE2E652715750500B314E3 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		DAAE2E68271590D300B314E3 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
+		DAAE2E6C271595B400B314E3 /* SpacingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingTableViewCell.swift; sourceTree = "<group>"; };
 		DAC6BC1B27134212006E3CF8 /* CurrencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManager.swift; sourceTree = "<group>"; };
 		DAC6BC1D27134338006E3CF8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		DAC6BC1F27134C5B006E3CF8 /* CurrenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenceTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 		DA9BE68726655BD9006BBFF5 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				DAAE2E6A2715956D00B314E3 /* UI */,
 				DAC6BC3927145187006E3CF8 /* MyCurrencies */,
 				DAC6BC2927134F5B006E3CF8 /* Currency */,
 				DA9BE6AB2665F1EB006BBFF5 /* Utils */,
@@ -150,8 +157,34 @@
 				DA9BE69E26655CBF006BBFF5 /* Parser.swift */,
 				DA9BE6A42665EC31006BBFF5 /* Extension Date.swift */,
 				DAC6BC1B27134212006E3CF8 /* CurrencyManager.swift */,
+				DAAE2E652715750500B314E3 /* DBManager.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		DAAE2E6727158ED800B314E3 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DAAE2E68271590D300B314E3 /* RecordTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		DAAE2E6A2715956D00B314E3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DAAE2E6B2715957700B314E3 /* ReusableTableViewCells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DAAE2E6B2715957700B314E3 /* ReusableTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6BC372714414D006E3CF8 /* TitleTableViewCell.swift */,
+				DAAE2E6C271595B400B314E3 /* SpacingTableViewCell.swift */,
+			);
+			path = ReusableTableViewCells;
 			sourceTree = "<group>";
 		};
 		DAC6BC2927134F5B006E3CF8 /* Currency */ = {
@@ -167,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				DAC6BC1F27134C5B006E3CF8 /* CurrenceTableViewCell.swift */,
-				DAC6BC372714414D006E3CF8 /* TitleTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -175,6 +207,7 @@
 		DAC6BC3927145187006E3CF8 /* MyCurrencies */ = {
 			isa = PBXGroup;
 			children = (
+				DAAE2E6727158ED800B314E3 /* TableViewCell */,
 				DAC6BC3A271451CD006E3CF8 /* MyCurrenciesViewController.swift */,
 			);
 			path = MyCurrencies;
@@ -300,13 +333,16 @@
 				DA9BE69F26655CBF006BBFF5 /* Parser.swift in Sources */,
 				DA9BE69D26655BFF006BBFF5 /* MainViewController.swift in Sources */,
 				DAC6BC35271351AB006E3CF8 /* CurrencyViewConroller.swift in Sources */,
+				DAAE2E69271590D300B314E3 /* RecordTableViewCell.swift in Sources */,
 				DA9BE6A126655D2F006BBFF5 /* Record.swift in Sources */,
 				DA9BE6B126663049006BBFF5 /* Value.swift in Sources */,
 				DAC6BC3B271451CD006E3CF8 /* MyCurrenciesViewController.swift in Sources */,
 				DAC6BC2027134C5B006E3CF8 /* CurrenceTableViewCell.swift in Sources */,
+				DAAE2E662715750500B314E3 /* DBManager.swift in Sources */,
 				DAC6BC1E27134338006E3CF8 /* Currency.swift in Sources */,
 				DA9BE68926655BD9006BBFF5 /* AppDelegate.swift in Sources */,
 				DA9BE6A72665EFB6006BBFF5 /* CustomCell.swift in Sources */,
+				DAAE2E6D271595B400B314E3 /* SpacingTableViewCell.swift in Sources */,
 				DA9BE68B26655BD9006BBFF5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

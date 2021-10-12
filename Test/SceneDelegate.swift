@@ -11,14 +11,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: CurrencyViewConroller())
+        
+        DBManager.shared.getCurrencies { currencies in
+            if currencies.count != 0 {
+                self.window?.rootViewController = UINavigationController(rootViewController: MyCurrenciesViewController())
+            } else {
+                self.window?.rootViewController = UINavigationController(rootViewController: CurrencyViewConroller())
+            }
+        }
     }
+
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         print("App Was Backgrounded")
