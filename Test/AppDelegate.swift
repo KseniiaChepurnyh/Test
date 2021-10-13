@@ -31,10 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func handleAppRefreshTask(task: BGAppRefreshTask) {
         print("task handler")
         
-        let date: String = {
-            let date = Date()
-            return Date().fogmatedDate(date: date)
-        }()
+//        let date: String = {
+//            let date = Date()
+//            return Date().fogmatedDate(date: date)
+//        }()
         
 //        Parser.shared.fetchRecord(date: date) { record in
 //            self.record = record

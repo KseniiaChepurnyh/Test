@@ -46,7 +46,7 @@ final class DBManager {
     
     func getMyRecords(completion: @escaping ([Record]) -> Void) {
         var records: [Record] = []
-        if let data = UserDefaults.standard.data(forKey: "selectedCurrencies") {
+        if let data = UserDefaults.standard.data(forKey: "MyRecords") {
             do {
                 let decoder = JSONDecoder()
                 records = try decoder.decode([Record].self, from: data)

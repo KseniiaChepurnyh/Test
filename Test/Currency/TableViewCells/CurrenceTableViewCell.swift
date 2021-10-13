@@ -91,8 +91,9 @@ private extension CurrencyTableViewCell {
     func setUpConstraints() {
         
         contentBackgroundView.snp.makeConstraints { make in
-            make.top.bottom.equalTo(contentView).inset(5)
+            make.top.bottom.equalTo(contentView)
             make.leading.trailing.equalTo(contentView).inset(16)
+            make.height.equalTo(60)
         }
         
         contentBackgroundView.addSubview(checkMarkImageView)

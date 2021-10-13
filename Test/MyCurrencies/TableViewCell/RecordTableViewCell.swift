@@ -52,7 +52,7 @@ final class RecordTableViewCell: UITableViewCell {
     private lazy var rightArrowImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "rightArrowCircle")
+        imageView.image = UIImage(named: "rightArrow")
         return imageView
     }()
     

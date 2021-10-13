@@ -52,8 +52,12 @@ final class MyCurrenciesViewController: UIViewController {
     
     
     // MARK: - Properties.
+    
     private var viewModel: MyCurrenciesViewModel?
     private var records: [Record] = []
+    
+    
+    // MARK: - Life Cycle.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,7 +130,7 @@ extension MyCurrenciesViewController: UITableViewDataSource, UITableViewDelegate
         let cellModel = viewModel?.cells[indexPath.row]
         
         if case let .recordCell(model) = cellModel {
-            openCurrencyDinamic(with: model)
+            openCurrencyDynamic(with: model)
         }
         
     }
@@ -155,8 +159,10 @@ private extension MyCurrenciesViewController {
         present(vc, animated: true)
     }
     
-    func openCurrencyDinamic(with model: Record) {
-        navigationController?.pushViewController(MainViewController(), animated: true)
+    func openCurrencyDynamic(with model: Record) {
+        let viewController = CurrencyDynamicViewController()
+        viewController.record = model
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

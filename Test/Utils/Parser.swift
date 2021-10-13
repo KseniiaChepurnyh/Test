@@ -11,7 +11,7 @@ import Foundation
 class Parser: NSObject {
     static let shared = Parser()
     
-    private var baseURLDinamic = "http://www.cbr.ru/scripts/XML_dynamic.asp?"
+    private var baseURLDynamic = "http://www.cbr.ru/scripts/XML_dynamic.asp?"
     
     private var baseURLDaily = "http://www.cbr.ru/scripts/XML_daily.asp?"
     
@@ -22,11 +22,17 @@ class Parser: NSObject {
     private var xmlText = ""
     private var date: String = ""
     
-    func fetchRecords(startDate: String, endDate: String, completion: @escaping ([Record]) -> Void) {
-        guard let url = URL(string: baseURLDinamic +
+    func fetchRecords(
+        startDate: String,
+        endDate: String,
+        code: String,
+        completion: @escaping ([Record]) -> Void
+    ) {
+        records = []
+        guard let url = URL(string: baseURLDynamic +
                                 "date_req1=\(startDate)&" +
                                 "date_req2=\(endDate)&" +
-                                "VAL_NM_RQ=R01235") else { return }
+                                "VAL_NM_RQ=\(code)") else { return }
         
         let request = URLRequest(url: url)
         

@@ -13,15 +13,20 @@
 		DA9BE69026655BD9006BBFF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA9BE68E26655BD9006BBFF5 /* Main.storyboard */; };
 		DA9BE69226655BDB006BBFF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9BE69126655BDB006BBFF5 /* Assets.xcassets */; };
 		DA9BE69526655BDB006BBFF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA9BE69326655BDB006BBFF5 /* LaunchScreen.storyboard */; };
-		DA9BE69D26655BFF006BBFF5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE69C26655BFF006BBFF5 /* MainViewController.swift */; };
+		DA9BE69D26655BFF006BBFF5 /* CurrencyDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE69C26655BFF006BBFF5 /* CurrencyDynamicViewController.swift */; };
 		DA9BE69F26655CBF006BBFF5 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE69E26655CBF006BBFF5 /* Parser.swift */; };
 		DA9BE6A126655D2F006BBFF5 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE6A026655D2F006BBFF5 /* Record.swift */; };
-		DA9BE6A52665EC31006BBFF5 /* Extension Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE6A42665EC31006BBFF5 /* Extension Date.swift */; };
+		DA9BE6A52665EC31006BBFF5 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE6A42665EC31006BBFF5 /* Date+Extensions.swift */; };
 		DA9BE6A72665EFB6006BBFF5 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE6A62665EFB6006BBFF5 /* CustomCell.swift */; };
 		DA9BE6B126663049006BBFF5 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9BE6B026663049006BBFF5 /* Value.swift */; };
 		DAAE2E662715750500B314E3 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE2E652715750500B314E3 /* DBManager.swift */; };
 		DAAE2E69271590D300B314E3 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE2E68271590D300B314E3 /* RecordTableViewCell.swift */; };
 		DAAE2E6D271595B400B314E3 /* SpacingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE2E6C271595B400B314E3 /* SpacingTableViewCell.swift */; };
+		DAAE2E702716AC7900B314E3 /* CurrencyDynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE2E6F2716AC7900B314E3 /* CurrencyDynamicView.swift */; };
+		DAAE2E722716ACBB00B314E3 /* CurrencyDynamicHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE2E712716ACBB00B314E3 /* CurrencyDynamicHeaderTableViewCell.swift */; };
+		DAAE2E742716ACDB00B314E3 /* CurrencyDynamicRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE2E732716ACDB00B314E3 /* CurrencyDynamicRecordTableViewCell.swift */; };
+		DAAE2E772716ACF900B314E3 /* CurrencyDynamicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE2E762716ACF900B314E3 /* CurrencyDynamicTableViewCell.swift */; };
+		DAAE2E792716C4C500B314E3 /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE2E782716C4C500B314E3 /* ContentSizedTableView.swift */; };
 		DAC6BC1C27134212006E3CF8 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6BC1B27134212006E3CF8 /* CurrencyManager.swift */; };
 		DAC6BC1E27134338006E3CF8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6BC1D27134338006E3CF8 /* Currency.swift */; };
 		DAC6BC2027134C5B006E3CF8 /* CurrenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6BC1F27134C5B006E3CF8 /* CurrenceTableViewCell.swift */; };
@@ -41,15 +46,20 @@
 		DA9BE69126655BDB006BBFF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA9BE69426655BDB006BBFF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA9BE69626655BDB006BBFF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA9BE69C26655BFF006BBFF5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DA9BE69C26655BFF006BBFF5 /* CurrencyDynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDynamicViewController.swift; sourceTree = "<group>"; };
 		DA9BE69E26655CBF006BBFF5 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		DA9BE6A026655D2F006BBFF5 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		DA9BE6A42665EC31006BBFF5 /* Extension Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension Date.swift"; sourceTree = "<group>"; };
+		DA9BE6A42665EC31006BBFF5 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		DA9BE6A62665EFB6006BBFF5 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		DA9BE6B026663049006BBFF5 /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
 		DAAE2E652715750500B314E3 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		DAAE2E68271590D300B314E3 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		DAAE2E6C271595B400B314E3 /* SpacingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingTableViewCell.swift; sourceTree = "<group>"; };
+		DAAE2E6F2716AC7900B314E3 /* CurrencyDynamicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDynamicView.swift; sourceTree = "<group>"; };
+		DAAE2E712716ACBB00B314E3 /* CurrencyDynamicHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDynamicHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		DAAE2E732716ACDB00B314E3 /* CurrencyDynamicRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDynamicRecordTableViewCell.swift; sourceTree = "<group>"; };
+		DAAE2E762716ACF900B314E3 /* CurrencyDynamicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDynamicTableViewCell.swift; sourceTree = "<group>"; };
+		DAAE2E782716C4C500B314E3 /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
 		DAC6BC1B27134212006E3CF8 /* CurrencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManager.swift; sourceTree = "<group>"; };
 		DAC6BC1D27134338006E3CF8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		DAC6BC1F27134C5B006E3CF8 /* CurrenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenceTableViewCell.swift; sourceTree = "<group>"; };
@@ -112,7 +122,7 @@
 				DAC6BC3927145187006E3CF8 /* MyCurrencies */,
 				DAC6BC2927134F5B006E3CF8 /* Currency */,
 				DA9BE6AB2665F1EB006BBFF5 /* Utils */,
-				DA9BE6AA2665F1CF006BBFF5 /* Controller */,
+				DA9BE6AA2665F1CF006BBFF5 /* CurrencyDynamic */,
 				DA9BE6A92665F1C4006BBFF5 /* View */,
 				DA9BE6A82665F1B9006BBFF5 /* Model */,
 				DA9BE68826655BD9006BBFF5 /* AppDelegate.swift */,
@@ -143,19 +153,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		DA9BE6AA2665F1CF006BBFF5 /* Controller */ = {
+		DA9BE6AA2665F1CF006BBFF5 /* CurrencyDynamic */ = {
 			isa = PBXGroup;
 			children = (
-				DA9BE69C26655BFF006BBFF5 /* MainViewController.swift */,
+				DAAE2E752716ACE800B314E3 /* TableViewCell */,
+				DAAE2E6E2716AC5300B314E3 /* CurrencyDynamicView */,
+				DA9BE69C26655BFF006BBFF5 /* CurrencyDynamicViewController.swift */,
 			);
-			path = Controller;
+			path = CurrencyDynamic;
 			sourceTree = "<group>";
 		};
 		DA9BE6AB2665F1EB006BBFF5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				DA9BE69E26655CBF006BBFF5 /* Parser.swift */,
-				DA9BE6A42665EC31006BBFF5 /* Extension Date.swift */,
+				DA9BE6A42665EC31006BBFF5 /* Date+Extensions.swift */,
 				DAC6BC1B27134212006E3CF8 /* CurrencyManager.swift */,
 				DAAE2E652715750500B314E3 /* DBManager.swift */,
 			);
@@ -174,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				DAAE2E6B2715957700B314E3 /* ReusableTableViewCells */,
+				DAAE2E782716C4C500B314E3 /* ContentSizedTableView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -185,6 +198,24 @@
 				DAAE2E6C271595B400B314E3 /* SpacingTableViewCell.swift */,
 			);
 			path = ReusableTableViewCells;
+			sourceTree = "<group>";
+		};
+		DAAE2E6E2716AC5300B314E3 /* CurrencyDynamicView */ = {
+			isa = PBXGroup;
+			children = (
+				DAAE2E6F2716AC7900B314E3 /* CurrencyDynamicView.swift */,
+				DAAE2E712716ACBB00B314E3 /* CurrencyDynamicHeaderTableViewCell.swift */,
+				DAAE2E732716ACDB00B314E3 /* CurrencyDynamicRecordTableViewCell.swift */,
+			);
+			path = CurrencyDynamicView;
+			sourceTree = "<group>";
+		};
+		DAAE2E752716ACE800B314E3 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DAAE2E762716ACF900B314E3 /* CurrencyDynamicTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		DAC6BC2927134F5B006E3CF8 /* Currency */ = {
@@ -327,11 +358,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA9BE6A52665EC31006BBFF5 /* Extension Date.swift in Sources */,
+				DA9BE6A52665EC31006BBFF5 /* Date+Extensions.swift in Sources */,
 				DAC6BC1C27134212006E3CF8 /* CurrencyManager.swift in Sources */,
 				DAC6BC382714414D006E3CF8 /* TitleTableViewCell.swift in Sources */,
+				DAAE2E792716C4C500B314E3 /* ContentSizedTableView.swift in Sources */,
 				DA9BE69F26655CBF006BBFF5 /* Parser.swift in Sources */,
-				DA9BE69D26655BFF006BBFF5 /* MainViewController.swift in Sources */,
+				DA9BE69D26655BFF006BBFF5 /* CurrencyDynamicViewController.swift in Sources */,
+				DAAE2E742716ACDB00B314E3 /* CurrencyDynamicRecordTableViewCell.swift in Sources */,
 				DAC6BC35271351AB006E3CF8 /* CurrencyViewConroller.swift in Sources */,
 				DAAE2E69271590D300B314E3 /* RecordTableViewCell.swift in Sources */,
 				DA9BE6A126655D2F006BBFF5 /* Record.swift in Sources */,
@@ -344,6 +377,9 @@
 				DA9BE6A72665EFB6006BBFF5 /* CustomCell.swift in Sources */,
 				DAAE2E6D271595B400B314E3 /* SpacingTableViewCell.swift in Sources */,
 				DA9BE68B26655BD9006BBFF5 /* SceneDelegate.swift in Sources */,
+				DAAE2E772716ACF900B314E3 /* CurrencyDynamicTableViewCell.swift in Sources */,
+				DAAE2E702716AC7900B314E3 /* CurrencyDynamicView.swift in Sources */,
+				DAAE2E722716ACBB00B314E3 /* CurrencyDynamicHeaderTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

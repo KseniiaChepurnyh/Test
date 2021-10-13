@@ -22,7 +22,7 @@ struct CurrencyViewModel {
 enum CurrencyCells {
     case currencyCell(model: Currency, type: CurrencyTableViewCellType)
     case titleCell(text: String)
-    #warning("Добавить spaicing cell")
+    case spacingCell(height: CGFloat)
 }
 
 final class CurrencyViewConroller: UIViewController {
@@ -42,6 +42,10 @@ final class CurrencyViewConroller: UIViewController {
         tableView.register(
             TitleTableViewCell.self,
             forCellReuseIdentifier: "TitleTableViewCell"
+        )
+        tableView.register(
+            SpacingTableViewCell.self,
+            forCellReuseIdentifier: "SpacingTableViewCell"
         )
         return tableView
     }()
@@ -88,7 +92,6 @@ extension CurrencyViewConroller: UITableViewDataSource, UITableViewDelegate {
                 withIdentifier: "CurrencyTableViewCell",
                 for: indexPath
             ) as! CurrencyTableViewCell
-            
             cell.configureCell(witn: model, type: type)
             return cell
         case let .titleCell(text):
@@ -98,13 +101,26 @@ extension CurrencyViewConroller: UITableViewDataSource, UITableViewDelegate {
             ) as! TitleTableViewCell
             cell.configureCell(with: text)
             return cell
+        case .spacingCell:
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "SpacingTableViewCell",
+                for: indexPath
+            ) as! SpacingTableViewCell
+            return cell
         default:
             return UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        let cellModel = viewModel?.cells[indexPath.row]
+        
+        switch cellModel {
+        case let .spacingCell(height):
+            return height
+        default:
+            return UITableView.automaticDimension
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -134,11 +150,14 @@ private extension CurrencyViewConroller {
         var cells: [CurrencyCells] = []
         
         cells.append(.titleCell(text: "Выберите валюты"))
+        cells.append(.spacingCell(height: 20))
         currencyArray.forEach {
             if selectedCurrencies.contains($0) {
                 cells.append(.currencyCell(model: $0, type: .selected))
+                cells.append(.spacingCell(height: 10))
             } else {
                 cells.append(.currencyCell(model: $0, type: .notSelected))
+                cells.append(.spacingCell(height: 10))
             }
         }
         
