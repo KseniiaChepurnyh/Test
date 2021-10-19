@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 // MARK: - View Model.
 
@@ -50,11 +51,20 @@ final class CurrencyViewConroller: UIViewController {
         return tableView
     }()
     
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        return searchController
+    }()
+    
+    
     
     // MARK: - Properties.
     
     private var viewModel: CurrencyViewModel?
     private var selectedCurrencies: [Currency] = []
+    private var originalCurrencies: [Currency] = []
+    private var filteredCurrencies: [Currency] = []
     
     
     // MARK: - Life Cycle.
@@ -64,10 +74,13 @@ final class CurrencyViewConroller: UIViewController {
         
         setUpConstraints()
         addContinueButton()
-        DBManager.shared.getCurrencies { currency in
+        navigationItem.searchController = searchController
+        
+        DBManager.shared.getCurrencies { [unowned self] currency in
             self.selectedCurrencies = currency
             self.setContinueButtonHidden(self.selectedCurrencies.count > 0 ? false : true)
-            CurrencyManager.shared.fetchCurrencyList { currencyArray in
+            CurrencyManager.shared.fetchCurrencyList { [unowned self] currencyArray in
+                self.originalCurrencies = currencyArray
                 self.generateViewModel(from: currencyArray)
             }
         }
@@ -80,7 +93,7 @@ final class CurrencyViewConroller: UIViewController {
 extension CurrencyViewConroller: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel?.currencyArray.count ?? 0
+        viewModel?.cells.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -129,7 +142,8 @@ extension CurrencyViewConroller: UITableViewDataSource, UITableViewDelegate {
         if case let .currencyCell(model, _) = cellModel {
             guard let currencyArray = viewModel?.currencyArray else { return }
             if selectedCurrencies.contains(model) {
-                guard let index = selectedCurrencies.firstIndex(where: { $0 == model } ) else { return }
+                guard let index = selectedCurrencies.firstIndex(where: { $0 == model } )
+                else { return }
                 selectedCurrencies.remove(at: index)
             } else {
                 selectedCurrencies.append(model)
@@ -142,16 +156,38 @@ extension CurrencyViewConroller: UITableViewDataSource, UITableViewDelegate {
 }
 
 
+// MARK: - UISearchResultsUpdating.
+
+extension CurrencyViewConroller: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let text = searchController.searchBar.text?.lowercased() {
+            if text.count > 0 {
+                filteredCurrencies = originalCurrencies.filter(
+                    {
+                        $0.name.lowercased().range(of: text) != nil
+                    }
+                )
+                generateViewModel(from: filteredCurrencies)
+            } else {
+                generateViewModel(from: originalCurrencies)
+            }
+        }
+    }
+    
+}
+
+
 // MARK: - Private Methods.
 
 private extension CurrencyViewConroller {
     
-    func generateViewModel(from currencyArray: [Currency]) {
+    func generateViewModel(from currencies: [Currency]) {
         var cells: [CurrencyCells] = []
         
         cells.append(.titleCell(text: "Выберите валюты"))
         cells.append(.spacingCell(height: 20))
-        currencyArray.forEach {
+        currencies.forEach {
             if selectedCurrencies.contains($0) {
                 cells.append(.currencyCell(model: $0, type: .selected))
                 cells.append(.spacingCell(height: 10))
@@ -161,7 +197,7 @@ private extension CurrencyViewConroller {
             }
         }
         
-        viewModel = CurrencyViewModel(with: cells, currencyArray: currencyArray)
+        viewModel = CurrencyViewModel(with: cells, currencyArray: currencies)
         tableView.reloadData()
     }
     
@@ -173,10 +209,19 @@ private extension CurrencyViewConroller {
     
     @objc func didTapOnContinueButton() {
         DBManager.shared.saveCurrencies(for: selectedCurrencies)
-        
         let vc = UINavigationController(rootViewController: MyCurrenciesViewController())
         vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        self.present(vc, animated: true)
+    }
+    
+    func addContinueButton() {
+        let button = UIButton()
+        button.setTitle("Продолжить", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        button.addTarget(self, action: #selector(didTapOnContinueButton), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        navigationItem.rightBarButtonItem?.customView?.alpha = 0
     }
     
 }
@@ -192,16 +237,6 @@ private extension CurrencyViewConroller {
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
-    }
-    
-    func addContinueButton() {
-        let button = UIButton()
-        button.setTitle("Продолжить", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        button.addTarget(self, action: #selector(didTapOnContinueButton), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-        navigationItem.rightBarButtonItem?.customView?.alpha = 0
     }
     
 }

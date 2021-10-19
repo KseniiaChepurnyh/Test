@@ -118,7 +118,7 @@ private extension CurrencyDynamicViewController {
         let endDate = Date().string()
         let startDate = Date().monthFromNowDate().string()
         
-        Parser.shared.fetchRecords(startDate: startDate, endDate: endDate, code: record.id) { records in
+        RecordsManager.shared.fetchRecords(startDate: startDate, endDate: endDate, code: record.id) { [unowned self] records in
             self.generateViewModel(from: records)
         }
     }

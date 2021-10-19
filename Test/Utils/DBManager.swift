@@ -33,27 +33,5 @@ final class DBManager {
             print("Unable to encode currencies (\(error))")
         }
     }
-    
-    func saveMyRecords(for records: [Record]) {
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(records)
-            UserDefaults.standard.set(data, forKey: "MyRecords")
-        } catch {
-            print("Unable to encode records (\(error))")
-        }
-    }
-    
-    func getMyRecords(completion: @escaping ([Record]) -> Void) {
-        var records: [Record] = []
-        if let data = UserDefaults.standard.data(forKey: "MyRecords") {
-            do {
-                let decoder = JSONDecoder()
-                records = try decoder.decode([Record].self, from: data)
-            } catch {
-                print("Unable to decode records (\(error))")
-            }
-        }
-        completion(records)
-    }
+
 }

@@ -68,9 +68,9 @@ final class MyCurrenciesViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        DBManager.shared.getCurrencies { currencies in
-            Parser.shared.fetchRecord(currencies: currencies) { records in
-                DBManager.shared.saveMyRecords(for: records)
+        DBManager.shared.getCurrencies { [unowned self] currencies in
+            RecordsManager.shared.fetchRecord(currencies: currencies) { [unowned self] records in
+                //DBManager.shared.saveMyRecords(for: records)
                 self.generateViewModel(from: records)
             }
         }

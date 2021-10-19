@@ -8,8 +8,8 @@
 import Foundation
 
 
-class Parser: NSObject {
-    static let shared = Parser()
+class RecordsManager: NSObject {
+    static let shared = RecordsManager()
     
     private var baseURLDynamic = "http://www.cbr.ru/scripts/XML_dynamic.asp?"
     
@@ -83,7 +83,7 @@ class Parser: NSObject {
     }
 }
 
-extension Parser: XMLParserDelegate {
+extension RecordsManager: XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
         xmlText = ""
